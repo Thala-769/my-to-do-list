@@ -1,0 +1,230 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0f7fa; /* Light cyan background for freshness */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden; /* Ensures no horizontal scrolling */
+}
+
+/* Container for the to-do list */
+.container {
+    background-color: rgba(255, 255, 255, 0.1); /* Transparent white background */
+    border-radius: 8px;
+    padding: 40px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    max-width: 90%;
+    text-align: center;
+    z-index: 10; /* Ensure the container is on top of the clouds */
+}
+
+/* Title styling */
+h1 {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+/* Input field and button styling */
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+input[type="text"], select {
+    width: 70%;
+    padding: 15px;
+    font-size: 16px;
+    margin-right: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 25%;
+    padding: 15px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#add-task-btn {
+    background-color: #007bff;
+}
+
+#add-task-btn:hover {
+    background-color: #0056b3;
+}
+
+#clear-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #FF5722;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#clear-btn:hover {
+    background-color: #e64a19;
+}
+
+/* Task count section */
+#task-counts {
+    margin-bottom: 30px;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Task list styling */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+li {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+}
+
+li.low { background-color: #f9f9f9; }
+li.medium { background-color: #ffe3b3; }
+li.high { background-color: #ffb3b3; }
+li.completed { text-decoration: line-through; color: gray; background-color: #d3ffd3; }
+
+/* Task buttons */
+button.delete {
+    background-color: #f44336;
+    color: white;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button.delete:hover {
+    background-color: #e53935;
+}
+
+button.complete {
+    background-color: #2196F3;
+    color: white;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button.complete:hover {
+    background-color: #1976D2;
+}
+
+/* Toast Notification */
+#toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+#toast.show {
+    visibility: visible;
+    animation: fadeInOut 3s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    30% { opacity: 1; }
+    70% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Cloud Animation - Positioned in the Background */
+.cloud {
+    position: absolute;
+    top: 10%; /* Clouds start a little below the top */
+    width: 300px;
+    height: 100px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 30px 30px 30px rgba(255, 255, 255, 0.4), -30px 30px 30px rgba(255, 255, 255, 0.4);
+    animation: moveClouds 20s linear infinite;
+    z-index: -1; /* Ensure clouds stay behind content */}
+
+.cloud:after {
+    content: "";
+    position: absolute;
+    top: -40px;
+    left: 60px;
+    width: 300px;
+    height: 100px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 30px 30px 30px rgba(255, 255, 255, 0.4), -30px 30px 30px rgba(255, 255, 255, 0.4);
+}
+
+.cloud-two {
+    width: 350px;
+    height: 120px;
+    top: 20%;
+    animation: moveClouds 25s linear infinite;
+    animation-delay: 5s;
+}
+
+.cloud-three {
+    width: 300px;
+    height: 100px;
+    top: 30%;
+    animation: moveClouds 30s linear infinite;
+    animation-delay: 10s;
+}
+.cloud-four {
+    width: 330px;
+    height: 110px;
+    top: 40%;
+    animation: moveClouds 27s linear infinite;
+    animation-delay: 3s;
+}
+
+.cloud-five {
+    width: 280px;
+    height: 90px;
+    top: 50%;
+    animation: moveClouds 22s linear infinite;
+    animation-delay: 8s;
+}
+
+/* Cloud Movement Animation */
+@keyframes moveClouds {
+    0% { left: -300px; }
+    100% { left: 100%; }
+}
